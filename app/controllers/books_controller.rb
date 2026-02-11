@@ -1,2 +1,47 @@
 class BooksController < ApplicationController
+
+  def top
+  end
+
+  def index
+    @book = Book.new
+    @books = Book.order(:id)
+  end
+
+  def show
+    @book = Book.find(params[:id])
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def create
+    @book = Book.new(book_params)
+
+    if @book.save
+      redirect_to books_path, notice: 'Book was successfully created.'
+    else
+      @books = Book.order(:id)
+      flash.now[:alert] = 'error: failed to create'
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to book_path(@book), notice: 'Book was successfully updated.'
+    else
+      flash.now[:alert] = 'error: failed to update'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path, notice: 'Book was successfully destroyed.'
+  end
+
 end
