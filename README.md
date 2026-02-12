@@ -1,24 +1,14 @@
-# README
+# DMM WEBCAMPコンテンツ　[アプリケーションを作成しよう]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+提出課題 :Bookers　
 
-Things you may want to cover:
+# Bookers
 
-* Ruby version
+読んだ本の感想を投稿できるアプリです。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 機能
+- 新規投稿
+- 一覧・詳細
+- 編集
+- 削除
+- バリデーション
