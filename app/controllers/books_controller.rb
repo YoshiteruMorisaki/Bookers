@@ -20,10 +20,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to books_path, notice: 'Book was successfully created.'
+      redirect_to books_path(@book), notice: 'Book was successfully created.'
     else
       @books = Book.order(:id)
-      flash.now[:alert] = 'error: failed to create'
+      # flash.now[:alert] = 'error: failed to create'
       render :index, status: :unprocessable_entity
     end
   end
@@ -33,7 +33,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to book_path(@book), notice: 'Book was successfully updated.'
     else
-      flash.now[:alert] = 'error: failed to update'
+      # flash.now[:alert] = 'error: failed to update'
       render :edit, status: :unprocessable_entity
     end
   end
